@@ -4,6 +4,7 @@ import uuid
 
 app = Flask (__name__)
 
+livros = []
 Leitor = []
 
 @app.route("/cadastrar/leitores", methods=['POST'])
@@ -27,4 +28,17 @@ def acesso():
         if entrar["rg"] == entrar["rg"] and entrar["senha"] == entrar["senha"]:
             return{"Acesso":"Liberado."}
         else:
-            return{"Erro.":"Usuario ou Senha Incorretos."}   
+            return{"Erro.":"Usuario ou Senha Incorretos."}
+
+@app.route("/cadastrar/livros", methods=['POST'])
+def livro():
+    livros_registro = request.json 
+    for user in livros:
+        if user["nome_livro"] == livros_registro["nome_livro"]:  
+            return {"Algo deu errado.":"Esse nome_livro ja existe."}
+    livros_registro = {
+        "id": str(uuid.uuid4()),
+        "nome_livro": livros_registro["nome_livro"]
+        }
+    livros.append(livros_registro)
+    return jsonify(livros_registro)   
