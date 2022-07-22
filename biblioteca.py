@@ -20,6 +20,15 @@ def leitores_cadastrar():
     Leitor.append(registro)
     return jsonify(registro)
 
+@app.route("/acesso", methods=['POST'])
+def acesso():
+    entrar = request.json
+    for entrar in Leitor:
+        if entrar["rg"] == entrar["rg"] and entrar["senha"] == entrar["senha"]:
+            return{"Acesso":"Liberado."}
+        else:
+            return{"Erro.":"Usuario ou Senha Incorretos."}
+
 
 
 
