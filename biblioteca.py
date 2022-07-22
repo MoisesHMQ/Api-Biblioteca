@@ -54,3 +54,14 @@ def todos_livros():
 @app.route("/livros/leitores")
 def livros_e_leitores():
     return jsonify(livros,Leitor)
+
+@app.route("/excluir/leitores", methods=['POST'])
+def leitores_excluir():
+    leitor_excluir = request.json
+    print(Leitor)
+    for listas in Leitor:
+        if listas["Nºcadastro"] == leitor_excluir["Nºcadastro"]:
+            Leitor.remove(listas)
+            return leitor_excluir
+
+app.run()
