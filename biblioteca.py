@@ -45,4 +45,8 @@ def livro():
 
 @app.route("/leitores")
 def todos_leitores():
-    return jsonify(Leitor)   
+    return jsonify(Leitor)
+
+@app.route("/livros")
+def todos_livros():
+    return jsonify(livros)   
