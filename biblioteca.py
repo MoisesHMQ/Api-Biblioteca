@@ -64,4 +64,13 @@ def leitores_excluir():
             Leitor.remove(listas)
             return leitor_excluir
 
+@app.route("/excluir/livros", methods=['POST'])
+def livros_excluir():
+    livro_excluir = request.json
+    print(livros)
+    for list in livros:
+        if list["identificação"] == livro_excluir["identificação"]:
+            livros.remove(list)
+            return livro_excluir
+
 app.run()
