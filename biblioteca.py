@@ -41,4 +41,8 @@ def livro():
         "nome_livro": livros_registro["nome_livro"]
         }
     livros.append(livros_registro)
-    return jsonify(livros_registro)   
+    return jsonify(livros_registro) 
+
+@app.route("/leitores")
+def todos_leitores():
+    return jsonify(Leitor)   
