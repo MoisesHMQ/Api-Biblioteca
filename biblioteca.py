@@ -27,8 +27,4 @@ def acesso():
         if entrar["rg"] == entrar["rg"] and entrar["senha"] == entrar["senha"]:
             return{"Acesso":"Liberado."}
         else:
-            return{"Erro.":"Usuario ou Senha Incorretos."}
-
-
-
-
+            return{"Erro.":"Usuario ou Senha Incorretos."}   
