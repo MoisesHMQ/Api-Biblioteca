@@ -14,7 +14,7 @@ def leitores_cadastrar():
         if user["rg"] == registro["rg"]:  
             return {"Errado.":"Rg ja existe."}
     registro = {
-        "Nºcadastro": str(uuid.uuid4()),
+        "id": str(uuid.uuid4()),
         "rg": registro["rg"],
         "senha": registro["senha"]
         }
@@ -60,7 +60,7 @@ def leitores_excluir():
     leitor_excluir = request.json
     print(Leitor)
     for listas in Leitor:
-        if listas["Nºcadastro"] == leitor_excluir["Nºcadastro"]:
+        if listas["id"] == leitor_excluir["id"]:
             Leitor.remove(listas)
             return leitor_excluir
 
@@ -69,7 +69,7 @@ def livros_excluir():
     livro_excluir = request.json
     print(livros)
     for list in livros:
-        if list["identificação"] == livro_excluir["identificação"]:
+        if list["id"] == livro_excluir["id"]:
             livros.remove(list)
             return livro_excluir
 
